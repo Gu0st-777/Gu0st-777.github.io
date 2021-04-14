@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="contact"/>
+        <meta property="og:title" content="Chrome 0day 远程命令执行漏洞"/>
     
 
     <!--Open Graph Description-->
@@ -47,7 +47,7 @@
 
     <!-- Title -->
     
-    <title>contact - 露天烧烤</title>
+    <title>Chrome 0day 远程命令执行漏洞 - 露天烧烤</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -140,28 +140,32 @@
     <div class="col-sm-12">
 
         <!--Title and Logo-->
-        
-            <header>
+        <header>
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
     </div>
 </header>
-            <section class="main">
-                
+
+        <section class="main">
+            
 <div class="post">
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/contact/index.html">
-                contact
+            <a href="/2021/04/14/Chrome-0day-%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/">
+                Chrome 0day 远程命令执行漏洞
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2021-04-13</span>
+                <span class="date">2021-04-14</span>
             
             
+            
+                <span class="category">
+                    <a href="/categories/漏洞复现/">漏洞复现</a>
+                </span>
             
         </div>
     </div>
@@ -172,10 +176,14 @@
         
 
         <!-- Post Content -->
-        <h1 id="联系方式：QQ-894683272"><a href="#联系方式：QQ-894683272" class="headerlink" title="联系方式：QQ+894683272"></a><p align="center">联系方式：QQ+894683272</p></h1><blockquote>
+        <h2 id="2021年HVV中，爆出来的chrome最新漏洞，进行尝试复现，条件苛刻。"><a href="#2021年HVV中，爆出来的chrome最新漏洞，进行尝试复现，条件苛刻。" class="headerlink" title="2021年HVV中，爆出来的chrome最新漏洞，进行尝试复现，条件苛刻。"></a>2021年HVV中，爆出来的chrome最新漏洞，进行尝试复现，条件苛刻。</h2><h2 id="1、信息"><a href="#1、信息" class="headerlink" title="1、信息"></a>1、信息</h2><span id="more"></span>
 <blockquote>
-<p align="center">有问题加好友询问，记得表明来源和目的哦！</p>
+<p>首先介绍我的复现环境，虚拟机是WIN7系统，google chrome版本是87.0.4280.88版本(低版本的都可以，89.0.4389.114版本的必须关闭SandBox功能)</p>
 </blockquote>
+<h2 id="2、复现过程"><a href="#2、复现过程" class="headerlink" title="2、复现过程"></a>2、复现过程</h2><blockquote>
+<p>1)、右键浏览器的图标，点击属性，选择快捷方式模块，找到目标，在后面添加-no-sandbox，点击应用，修改完以后,打开我们的浏览器。<br>  “C:\Program Files\Google\Chrome\Application\chrome.exe” –args–no-sanbox<br> <img src="/2021/04/14/Chrome-0day-%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E//1.jpg" alt="装B专用"><br>2)、打开构造好的POC，即可执行代码。</p>
+<script src="exploit.js"></script>
+<p> <img src="/2021/04/14/Chrome-0day-%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E//2.jpg" alt="装B专用"></p>
 </blockquote>
 
     </div>
@@ -183,13 +191,18 @@
     
 
     
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/2021HVV/">#2021HVV</a>
+        </div>
+    
 
     <!-- Comments -->
     
 
 </div>
-            </section>
-        
+        </section>
+
     </div>
 </div>
 
