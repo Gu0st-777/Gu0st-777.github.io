@@ -176,18 +176,14 @@
         
 
         <!-- Post Content -->
-        <h4 id="2021年HVV中，爆出来的Google-chrome最新漏洞，进行尝试复现，条件苛刻。"><a href="#2021年HVV中，爆出来的Google-chrome最新漏洞，进行尝试复现，条件苛刻。" class="headerlink" title="2021年HVV中，爆出来的Google chrome最新漏洞，进行尝试复现，条件苛刻。"></a>2021年HVV中，爆出来的Google chrome最新漏洞，进行尝试复现，条件苛刻。</h4><h2 id="1、受影响版本"><a href="#1、受影响版本" class="headerlink" title="1、受影响版本"></a>1、受影响版本</h2><span id="more"></span>
+        <h4 id="2021年HVV中，爆出来的Google-chrome最新漏洞，进行尝试复现，条件苛刻。"><a href="#2021年HVV中，爆出来的Google-chrome最新漏洞，进行尝试复现，条件苛刻。" class="headerlink" title="2021年HVV中，爆出来的Google chrome最新漏洞，进行尝试复现，条件苛刻。"></a>2021年HVV中，爆出来的Google chrome最新漏洞，进行尝试复现，条件苛刻。</h4><h2 id="1、受影响版本"><a href="#1、受影响版本" class="headerlink" title="1、受影响版本"></a>1、受影响版本</h2><p>  Google chrome版本&lt;=89.0.4389.114版本</p>
+<h2 id="2、复现过程"><a href="#2、复现过程" class="headerlink" title="2、复现过程"></a>2、复现过程</h2><span id="more"></span>
+<p>  1)、首先必须关闭SandBox功能，我的Google chrome浏览器版本是89.0.4389.114版本。右键浏览器的图标，点击属性，选择快捷方式模块，找到目标，在后面添加-no-sandbox ，点击应用，修改完以后,打开我们的浏览器。<br>  “C:\Program Files\Google\Chrome\Application\chrome.exe” -no-sanbox<br> <img src="/2021/04/13/Chrome-0day-%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E//1.jpg" alt="装B专用"><br>  2)、打开构造好的POC，即可执行代码。<br>  <a target="_blank" rel="noopener" href="https://github.com/r4j0x00/exploits/tree/master/chrome-0day">poc地址</a><br>‘’’</p>
 <blockquote>
-<p>Google chrome版本&lt;=89.0.4389.114版本</p>
-</blockquote>
-<h2 id="2、复现过程"><a href="#2、复现过程" class="headerlink" title="2、复现过程"></a>2、复现过程</h2><blockquote>
-<p>1)、首先必须关闭SandBox功能，我的Google chrome浏览器版本是89.0.4389.114版本。右键浏览器的图标，点击属性，选择快捷方式模块，找到目标，在后面添加-no-sandbox ，点击应用，修改完以后,打开我们的浏览器。<br>  “C:\Program Files\Google\Chrome\Application\chrome.exe” -no-sanbox<br> <img src="/2021/04/13/Chrome-0day-%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E//1.jpg" alt="装B专用"><br>2)、打开构造好的POC，即可执行代码。<br><a target="_blank" rel="noopener" href="https://github.com/r4j0x00/exploits/tree/master/chrome-0day">poc地址</a></p>
 <script src="exploit.js"></script>
-<p> <img src="/2021/04/13/Chrome-0day-%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E//2.jpg" alt="装B专用"></p>
+<p>‘’’<br> <img src="/2021/04/13/Chrome-0day-%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E//2.jpg" alt="装B专用"></p>
 </blockquote>
-<h2 id="3、建议-二选一，建议选2"><a href="#3、建议-二选一，建议选2" class="headerlink" title="3、建议(二选一，建议选2)"></a>3、建议(二选一，建议选2)</h2><blockquote>
-<p>1)、手动检查一下自己的目标后是否添加-no-sandbox ，不过这个漏洞影响不大，Google chrome浏览器默认开启沙箱，进行过滤。<br>2)、步骤如下：Chrome 浏览器中打开 chrome://settings/help ，检查更新。<br> <img src="/2021/04/13/Chrome-0day-%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E//3.png" alt="装B专用"></p>
-</blockquote>
+<h2 id="3、建议-二选一，建议选2"><a href="#3、建议-二选一，建议选2" class="headerlink" title="3、建议(二选一，建议选2)"></a>3、建议(二选一，建议选2)</h2><p> 1)、手动检查一下自己的目标后是否添加-no-sandbox ，不过这个漏洞影响不大，Google chrome浏览器默认开启沙箱，进行过滤。<br> 2)、步骤如下：Chrome 浏览器中打开 chrome://settings/help ，检查更新。<br> <img src="/2021/04/13/Chrome-0day-%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E//3.png" alt="装B专用"></p>
 
     </div>
 
@@ -230,11 +226,11 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2021/04/13/%E5%B0%B1%E4%BD%A0%E5%8F%ABHY%E5%95%8A/">就你叫HY啊？</a>
+                <a class="footer-post" href="/2021/04/13/Chrome-0day-%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/">Chrome 0day 远程命令执行漏洞</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/04/13/Chrome-0day-%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/">Chrome 0day 远程命令执行漏洞</a>
+                <a class="footer-post" href="/2021/04/13/%E5%B0%B1%E4%BD%A0%E5%8F%ABHY%E5%95%8A/">就你叫HY啊？</a>
             </li>
             
         </ul>
