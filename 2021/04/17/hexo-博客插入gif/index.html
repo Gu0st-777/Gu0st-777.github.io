@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="快捷键装B小技巧"/>
+        <meta property="og:title" content="hexo-博客插入gif"/>
     
 
     <!--Open Graph Description-->
@@ -47,7 +47,7 @@
 
     <!-- Title -->
     
-    <title>快捷键装B小技巧 - 露天烧烤</title>
+    <title>hexo-博客插入gif - 露天烧烤</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -153,13 +153,13 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/2021/04/15/%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%A3%85B%E5%B0%8F%E6%8A%80%E5%B7%A7/">
-                快捷键装B小技巧
+            <a href="/2021/04/17/hexo-%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5gif/">
+                hexo-博客插入gif
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2021-04-15</span>
+                <span class="date">2021-04-17</span>
             
             
             
@@ -176,10 +176,25 @@
         
 
         <!-- Post Content -->
-        <h5 id="你们的桌面是否一大堆图标呢？是否看着特别乱呢？又或者父母长辈看见了你电脑里面的这些图标呢？"><a href="#你们的桌面是否一大堆图标呢？是否看着特别乱呢？又或者父母长辈看见了你电脑里面的这些图标呢？" class="headerlink" title="你们的桌面是否一大堆图标呢？是否看着特别乱呢？又或者父母长辈看见了你电脑里面的这些图标呢？"></a>你们的桌面是否一大堆图标呢？是否看着特别乱呢？又或者父母长辈看见了你电脑里面的这些图标呢？</h5><p><img src="/2021/04/15/%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%A3%85B%E5%B0%8F%E6%8A%80%E5%B7%A7//1.png" alt="装B专用"><br>接下来我就教给你们一个特殊的隐藏方法，调用的适合还特别帅，如果别人看见了，你还会收获一批小粉丝哦！</p>
-<span id="more"></span>
-<h2 id="直接上过程"><a href="#直接上过程" class="headerlink" title="直接上过程"></a>直接上过程</h2><p>1、右键我的电脑(此电脑) →→→→ 属性 →→→→ 点击高级系统设置 →→→→ 点击环境变量<br><img src="/2021/04/15/%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%A3%85B%E5%B0%8F%E6%8A%80%E5%B7%A7//3.png" alt="装B专用"><br>2、找一下自己对应系统的用户变量，然后将其复制下来<br><img src="/2021/04/15/%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%A3%85B%E5%B0%8F%E6%8A%80%E5%B7%A7//4.png" alt="装B专用"><br>3、然后随便在一个盘符的框框里，粘贴进去<br><img src="/2021/04/15/%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%A3%85B%E5%B0%8F%E6%8A%80%E5%B7%A7//5.png" alt="装B专用"><br>4、会进到一个文件夹，然后将桌面的快捷图标复制粘贴进来，删除桌面图标。调用运行服务(win+R键)输入相对应的名称，以QQ举例子(不区分大小写)<br>5、输入QQ，点击确定或者按回车键，就可以看到QQ启动了，教程结束。<br><img src="/2021/04/15/%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%A3%85B%E5%B0%8F%E6%8A%80%E5%B7%A7//6.png" alt="装B专用"></p>
-<h5 id="快去试验一下，给你的小伙伴展示一下吧。"><a href="#快去试验一下，给你的小伙伴展示一下吧。" class="headerlink" title="快去试验一下，给你的小伙伴展示一下吧。"></a>快去试验一下，给你的小伙伴展示一下吧。</h5>
+        <h5 id="起因"><a href="#起因" class="headerlink" title="$ 起因"></a>$ 起因</h5><p>在写文章的时候以为插入gif只需要给图片路径改成gif路径就可以，结果就出现了未显示的图片，为此我花费了两个小时去解决，然后连带上传视频也解决了。</p>
+<h6 id="三种方法"><a href="#三种方法" class="headerlink" title="$ 三种方法"></a>$ 三种方法</h6><span id="more"></span>
+
+<ol>
+<li>在github上创建库，然后直接上传gif。接着找到图片，复制URL，但是这种方法，有时候github禁止访问就可烦人，所以我不推荐。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![随便写](https:&#x2F;&#x2F;换成自己github存放gif的路径.gif)</span><br></pre></td></tr></table></figure>
+
+<p>2)自己搭建一个服务器，然后上传gif或者mp4，调用URL.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![随便写](https:&#x2F;&#x2F;换成自己服务器存放gif的路径.gif)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/04/17/hexo-%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5gif//1.jpeg" alt="装B专用"></p>
+<p>3）像我这种懒人怎么会去做搭建服务器那么麻烦的事呢？反正图片又不重要。</p>
+<p><img src="https://i.loli.net/2021/04/17/5itNC9Pl4xAn1KW.gif" alt="装B专用"></p>
+<p>找了一次又一次，找了好久，终于，让我找到了一个可以免费存图片，而且不登录的情况下无限存，登录情况下只有5G。也就是说，不重要的，这样做。重要的，那样做。我这样说明白人都能理解，嘿嘿嘿，白嫖yyds！！！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;sm.ms&#x2F;    上传图片以后，会直接给出Markdown的地址，复制粘贴就完事了</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/04/17/hexo-%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5gif//1.png" alt="装B专用"></p>
+
     </div>
 
     
@@ -187,7 +202,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/简单知识/">#简单知识</a>
+            <a href="/tags/疑难问题/">#疑难问题</a>
         </div>
     
 
