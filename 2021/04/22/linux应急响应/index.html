@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="Men are afraid of getting into the wrong line">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Gu0st">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="linux应急响应"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Men are afraid of getting into the wrong line" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="露天烧烤"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary" />
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>linux应急响应 - 露天烧烤</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2021/04/22/linux%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/">
+                linux应急响应
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2021-04-22</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/linux/">linux</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h4 id="一、排查思路"><a href="#一、排查思路" class="headerlink" title="一、排查思路"></a>一、<strong>排查思路</strong></h4><p>下文主要以Linux为例。主要分为六大部分进行检测排查，具体内容如下</p>
+<p>（一）<strong>系统账号安全</strong></p>
+<p>1．<strong>查询服务器用户是否为弱口令</strong></p>
+<p>检查方法：</p>
+<span id="more"></span>
+
+<p>据实际情况咨询相关服务器管理员。</p>
+<p>2．<strong>查询特权用户特权用户(uid 为 0)</strong></p>
+<p>检查方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Shell ~]# awk -F: &#39;$3&#x3D;&#x3D;0&#123;print $1&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+
+<p>通常情况下避免其他用户成为特权用户（uid=0）</p>
+<p>3．<strong>查询可以远程登录的帐号信息</strong></p>
+<p>检查方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Shell ~]# awk &#39;&#x2F;$1|$6&#x2F;&#123;print $1&#125;&#39; &#x2F;etc&#x2F;shadow</span><br></pre></td></tr></table></figure>
+
+<p>4．<strong>除 root 帐号外，其他帐号是否存在 sudo 权限</strong></p>
+<p>检查方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Shell ~]# more &#x2F;etc&#x2F;sudoers | grep -v &quot;^#|^$&quot; | grep &quot;ALL&#x3D;(ALL)&quot;</span><br></pre></td></tr></table></figure>
+
+<p>5．<strong>查询有无异常的帐号信息</strong></p>
+<p>检查方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Shell ~]# cat &#x2F;etc&#x2F;passwd </span><br></pre></td></tr></table></figure>
+
+<p>查看有无未记录在案的账号信息</p>
+<p>（二）<strong>检查历史命令</strong></p>
+<p>1．<strong>查看帐号执行过的系统命令</strong></p>
+<p>a. root 的历史命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Shell ~]# history</span><br></pre></td></tr></table></figure>
+
+<p>b. 打开 /home 各帐号目录下的 .bash_history，查看普通帐号的历史命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Shell ~]# cat ~&#x2F;.bash_history</span><br></pre></td></tr></table></figure>
+
+<p>（三）<strong>检查端口、进程、开机启动项</strong></p>
+<p>1．<strong>检查端口</strong></p>
+<p>检查方法：</p>
+<p>使用 netstat 网络连接命令，分析可疑端口、IP、PID</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Shell ~]# netstat -antlp|more</span><br></pre></td></tr></table></figure>
+
+<p>(当服务器被挖矿或者挂马时均可能会存在异常通讯连接，异常的传输流量，异常的ip反向连接，所有与主机相连的IP均在检测范围内。)</p>
+<p>2．<strong>检查进程</strong></p>
+<p>检查方法：</p>
+<p>1.使用 ps 命令，分析进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep pid</span><br></pre></td></tr></table></figure>
+
+<p>(以挖矿为例，异常的进程会占用大量的系统资源)</p>
+<p>2.查看下pid所对应的进程文件路径：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l &#x2F;proc&#x2F;$PID&#x2F;exe 或 file &#x2F;proc&#x2F;$PID&#x2F;exe</span><br></pre></td></tr></table></figure>
+
+<p>($PID 为对应的 pid 号，可根据查找出的文件判断异常文件的位置)</p>
+<p>3．<strong>检查开机启动项</strong></p>
+<p>（1）<strong>入侵排查启动项文件</strong></p>
+<p>检查方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">more &#x2F;etc&#x2F;rc.local </span><br><span class="line"></span><br><span class="line">&#x2F;etc&#x2F;rc.d&#x2F;rc[0~6].d</span><br><span class="line"></span><br><span class="line">ls -l &#x2F;etc&#x2F;rc.d&#x2F;rc3.d&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>(检测开机启动项,检测有无未记录启动项)</p>
+<p>（2）<strong>检测系统命令是否被篡改</strong></p>
+<p>使用stat 查看系统命令，根据文件的修改时间检测是否被修改。如：stat /bin/ls</p>
+<p>(攻击者可能通过修改系统的命令文件进行后门的隐藏)</p>
+<p>4．<strong>检查有无异常服务</strong></p>
+<p>(一些病毒木马在入侵服务器后会创建自己的进程服务)</p>
+<p>检测方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chkconfig  --list  查看服务自启动状态</span><br><span class="line"></span><br><span class="line">service --status-all 查看当前已安装服务</span><br><span class="line"></span><br><span class="line">ps aux | grep crond 查看当前服务</span><br></pre></td></tr></table></figure>
+
+<p>（四）<strong>定时任务异常检测</strong></p>
+<p>检测方法：</p>
+<p>重点关注以下目录中是否存在恶意脚本：（有些病毒活着恶意程序为了隐藏自身会设置定时启动）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;var&#x2F;spool&#x2F;cron&#x2F;* </span><br><span class="line"></span><br><span class="line">&#x2F;etc&#x2F;crontab</span><br><span class="line"></span><br><span class="line">&#x2F;etc&#x2F;cron.d&#x2F;*</span><br><span class="line"></span><br><span class="line">&#x2F;etc&#x2F;cron.daily&#x2F;* </span><br><span class="line"></span><br><span class="line">&#x2F;etc&#x2F;cron.hourly&#x2F;* </span><br><span class="line"></span><br><span class="line">&#x2F;etc&#x2F;cron.monthly&#x2F;*</span><br><span class="line"></span><br><span class="line">&#x2F;etc&#x2F;cron.weekly&#x2F;</span><br><span class="line"></span><br><span class="line">&#x2F;etc&#x2F;anacrontab</span><br><span class="line"></span><br><span class="line">&#x2F;var&#x2F;spool&#x2F;anacron&#x2F;*</span><br></pre></td></tr></table></figure>
+
+<p>（五）<strong>自动化查杀</strong></p>
+<p>1．<strong>Rootkit 查杀</strong></p>
+<p>Chkrootkit: <a target="_blank" rel="noopener" href="http://www.chkrootkit.org/">http://www.chkrootkit.org</a></p>
+<p>使用方法：</p>
+<p><img src="https://i.loli.net/2021/04/22/tBO6zPg9cJoCqy4.png" alt="2.png"> </p>
+<p>2．<strong>webshell 查杀</strong></p>
+<p>检查方法：</p>
+<p>选择具体站点路径进行 webshell 查杀，建议使用两款 webshell 查杀工具同时查杀，可相互补充规则库的不足。如Linux版河马、Webshell 网站后门检测工具进行查杀。</p>
+<p>3．<strong>病毒查杀</strong></p>
+<p>下载安全防病毒软件，更新最新病毒库，进行全盘扫描。</p>
+<p>（六）<strong>日志分析</strong></p>
+<p>1．<strong>检查分析下列日志信息有无异常</strong></p>
+<p><img src="https://i.loli.net/2021/04/22/3SlDVW5KxOCpQEz.png" alt="1.png"> </p>
+<h4 id="2．排查分析"><a href="#2．排查分析" class="headerlink" title="2．排查分析"></a>2．<strong>排查分析</strong></h4><p>（1）<strong>定位有多少IP在爆破主机的 root 帐号</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &quot;Failed password for root&quot; &#x2F;var&#x2F;log&#x2F;secure | awk &#39;&#123;print $11&#125;&#39; | sort | uniq -c | sort -nr | more</span><br></pre></td></tr></table></figure>
+
+<p>（2）<strong>定位有哪些 IP 在爆破：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &quot;Failed password&quot; &#x2F;var&#x2F;log&#x2F;secure|grep -E -o &quot;(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)&quot;|uniq -c</span><br></pre></td></tr></table></figure>
+
+<p>（3）<strong>定位爆破用户名字典</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &quot;Failed password&quot; &#x2F;var&#x2F;log&#x2F;secure|perl -e &#39;while($_&#x3D;&lt;&gt;)&#123; &#x2F;for(.*?) from&#x2F;; print &quot;$1\n&quot;;&#125;&#39;|uniq -c|sort -nr</span><br></pre></td></tr></table></figure>
+
+<p>（4）<strong>登录成功的 IP</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &quot;Accepted &quot; &#x2F;var&#x2F;log&#x2F;secure | awk &#39;&#123;print $11&#125;&#39; | sort | uniq -c | sort -nr | more</span><br></pre></td></tr></table></figure>
+
+<p>（5）<strong>登录成功的日期、用户名、IP</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &quot;Accepted &quot; &#x2F;var&#x2F;log&#x2F;secure | awk &#39;&#123;print $1,$2,$3,$9,$11&#125;&#39; </span><br></pre></td></tr></table></figure>
+
+<p>（6）<strong>所有攻击行为检测</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -E -i &quot;rootkit|3est|door|server|kim|phpspy|jspspy|command|shell|hack|f4ck|eval\(|system\(|\.jpg\.|AppScan|CustomCookie|netsparker|sqlmap|Havij|Pangolin|nessus|Openvas|whatWEB|w3af|DirBuster|WEBbench|OPTIONS|PUT|HEAD|DEBUG|system|action|login|manager|super|editor|(\w+)%27|(\w+)%20and%20(\S+)|(\w+)%20or%20(\S+)|(\w+)&#x3D;(\d+)-(\d+)|(\d+)&gt;(\d+)|(\d+)&lt;(\d+)|(\S)waitfor(\W+)delay(\S)|(\S)having(\W)|(\S)sleep(\W)|(\w)\#|(\w)--|(\w)\&#x2F;\*(\S)|(\w)\&amp;\&amp;(\W)|(\S)select(\W)|(\S)insert(\S+)into(\W)|(\S)delete(\W)|(\S)update(\W)|(\S)create(\W)|(\S)drop(\W)|(\S)exists(\W)|(\S)backup(\W)|(\S)order(\S+)by(\W)|(\S)group(\S+)by(\W)|(\S)exec(\S)|(\S)truncate(\S)|(\S)declare(\S)|(\S)@@version(\S)|(\S)%3C(\S+)%3E|(\S)%3C(\S+)%2F%3E|(\S+)&lt;(\S+)&gt;|(\S+)&lt;(\S+)\&#x2F;&gt;|onerror|onmouse|expression|alert|document\.|prompt\(|\&#x2F;etc\&#x2F;passwd|\&#x2F;%c0%ae%c0%ae|\&#x2F;%2E%2E|boot\.ini|win\.ini|\.\.\&#x2F;|access\.log|httpd\.conf|nginx\.conf|\&#x2F;proc\&#x2F;self\&#x2F;environ|\&#x2F;cmd\.asp|\&#x2F;diy\.asp|\.asp;|\&#x2F;(\w+)\.(\w+)\&#x2F;(\w+)\.php|\.php\.|eval\(|%eval|\.jsp?action&#x3D;|fsaction&#x3D;|\&#x2F;WEB-INF\&#x2F;WEB\.xml|applicationContext\.xml|\&#x2F;manager\&#x2F;html|\&#x2F;jmx-console\&#x2F;|\.properties|\.class|phpinfo\.php|\&#x2F;conn\.asp|\&#x2F;conn\.php|\&#x2F;conn\.jsp|config\.php&quot; locahost -c</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/应急响应/">#应急响应</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=0 height=0 src="//music.163.com/outchain/player?type=2&id=32737993&auto=1&height=66"></iframe>
+                <p>
+                    <a target="_blank" rel="noopener" href="https://gu0st.cn/about">黎明咬破夜的唇，将那一抹血迹留于天际</a>
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2021/04/22/linux%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/">linux应急响应</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2021/04/19/%E8%A3%85%E9%80%BC%E6%9C%89%E5%BA%A6-%E5%8F%8A%E6%97%B6%E8%A1%8C%E4%B9%90/">装逼有度-及时行乐</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2021/04/17/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8/">漏洞扫描器</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2021/04/17/hexo-%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5gif/">hexo-博客插入gif</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/linux/">linux</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/2021HVV/">2021HVV</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E5%B0%8F%E6%8A%80%E6%9C%AF%E5%AD%98%E6%A1%A3/">小技术存档</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/Gu0st-777/Gu0st-777.github.io">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://telegram.org/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-telegram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @2021-2024 露天烧烤||Gu0st 
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="\js\FunnyTitle.js"></script>
+
+
+</body>
+
+</html>
