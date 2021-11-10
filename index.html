@@ -156,6 +156,57 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA/">
+                无法连接打印机
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2021-11-10</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/小技术存档/">小技术存档</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h4 id="最近因为windows10更新打了某些补丁，导致许多打印机无法连接共享打印机，话不多说，直接上教程！"><a href="#最近因为windows10更新打了某些补丁，导致许多打印机无法连接共享打印机，话不多说，直接上教程！" class="headerlink" title="最近因为windows10更新打了某些补丁，导致许多打印机无法连接共享打印机，话不多说，直接上教程！"></a>最近因为windows10更新打了某些补丁，导致许多打印机无法连接共享打印机，话不多说，直接上教程！</h4><h3 id="0x0000011b"><a href="#0x0000011b" class="headerlink" title="0x0000011b"></a>0x0000011b</h3><p>​        连接共享打印机时提示Windows 无法连接到打印机， 错误代码为0x0000011b。</p>
+<p><img src="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA//1.png" alt="装B专用"></p>
+<p><strong>问题排查：</strong><br>根据排查，确认为9月13号微软发布的 <strong>KB5005565</strong>补丁导致的此问题。</p>
+<p><img src="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA//2.png" alt="装B专用"></p>
+<p><strong>方法一：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、打开控制面板----查看方式(类别)----卸载程序----查看一看装的更新----找到(用于Microsoft Windows的安全更新KB5005565)----右键卸载----等待卸载</span><br><span class="line">2、WIN+R打开运行窗口----输入services.msc----找到windows update----关闭自动更新</span><br><span class="line">3、等卸载完成，关闭了自动更新，重新启动以后，再次连接共享打印机即可</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA//5.png" alt="装B专用"></p>
+<p><strong>方法二：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、WIN+R打开运行窗口----输入regedit调出来注册表----找到这个路径(HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print)----在空白处右键新建值----DWORO(32位)值(D)----重命名为(RpcAuthnLevelPrivacyEnabled)----右键修改键入数值0----点击确定</span><br><span class="line">2、WIN+R打开运行窗口----输入services.msc----找到windows update----关闭自动更新</span><br><span class="line">3、等卸载完成，关闭了自动更新，重新启动以后，再次连接共享打印机即可</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA//3.png" alt="装B专用"></p>
+<h3 id="0x00000709"><a href="#0x00000709" class="headerlink" title="0x00000709"></a>0x00000709</h3><p>​        连接共享打印机时提示Windows 无法连接到打印机， 错误代码为0x00000709。</p>
+<p><img src="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA//4.png" alt="装B专用"></p>
+<p><img src="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA//1.jpg" alt="装B专用"></p>
+<p><strong>解决方法：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、打开控制面板----查看方式(类别)----卸载程序----查看一看装的更新----找到(用于Microsoft Windows的安全更新KB500xxxx)----右键卸载</span><br><span class="line">2、WIN+R打开运行窗口----输入services.msc----找到windows update----关闭自动更新</span><br><span class="line">3、等卸载完成，关闭了自动更新，重新启动以后，再次连接共享打印机即可</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA//5.png" alt="装B专用"></p>
+<h3 id="连接共享打印机"><a href="#连接共享打印机" class="headerlink" title="连接共享打印机"></a>连接共享打印机</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、首先找一台电脑用线连接起来，安装对应驱动，使其正常打印，安装过程中直接共享其打印机。</span><br><span class="line">2、WIN+R打开运行窗口----输入services.msc----找到server----将服务开启</span><br><span class="line">3、WIN+R打开运行窗口----输入gpedit.msc----调出本地策略编辑器</span><br><span class="line">4、找到一下路径，计算机配置----windows设置----安全设置----本地策略----用户权限分配</span><br><span class="line">5、找到(拒绝从网络访问这台计算机、拒绝本地登录)，将guest删除。找到(从网络访问此计算机)，将guest加进去，保存</span><br><span class="line">6、找到一下路径，计算机配置----windows设置----安全设置----本地策略----安全选项</span><br><span class="line">7、找到(帐户: 使用空密码的本地帐户只允许进行控制台登录)并且禁用</span><br><span class="line">8、WIN+R打开运行窗口----输入共享打印机连接的主机IP地址----找到该打印机，点击连接，打印测试页，成功即完成共享打印机</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2021/04/22/linux%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/">
                 linux应急响应
             </a>
@@ -445,42 +496,24 @@
 
 </div>
             
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2021/04/13/%E5%B0%B1%E4%BD%A0%E5%8F%ABHY%E5%95%8A/">
-                就你叫HY啊？
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2021-04-13</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/categories/2021HVV/">2021HVV</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h2 id="1、起因"><a href="#1、起因" class="headerlink" title="1、起因"></a>1、起因</h2><p>&nbsp;&nbsp;HVV前夕，因为HX大佬跟朋友闹着玩，发了一个朋友圈，表示HY大佬在中国某通，快把我打穿等之类的话。 <br><br> <img src="/2021/04/13/%E5%B0%B1%E4%BD%A0%E5%8F%ABHY%E5%95%8A//1.jpg" alt="装B专用"><br></p>
-        </div>
-        <a href="/2021/04/13/%E5%B0%B1%E4%BD%A0%E5%8F%ABHY%E5%95%8A/" class="read-more">Read More</a>
-    
-
-</div>
-            
         </section>
     </div>
 </div>
 
 
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="wrap-pagination">
+                <a class="disabled" href="/">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </a>
+                <a class="" href="/page/2/">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -506,6 +539,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA/">无法连接打印机</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2021/04/22/linux%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/">linux应急响应</a>
             </li>
             
@@ -515,10 +552,6 @@
             
             <li>
                 <a class="footer-post" href="/2021/04/17/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8/">漏洞扫描器</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2021/04/17/hexo-%E5%8D%9A%E5%AE%A2%E6%8F%92%E5%85%A5gif/">hexo-博客插入gif</a>
             </li>
             
         </ul>

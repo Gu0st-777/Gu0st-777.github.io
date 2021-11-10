@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="categories"/>
+        <meta property="og:title" content="无法连接打印机"/>
     
 
     <!--Open Graph Description-->
@@ -47,7 +47,7 @@
 
     <!-- Title -->
     
-    <title>categories - 露天烧烤</title>
+    <title>无法连接打印机 - 露天烧烤</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -140,37 +140,81 @@
     <div class="col-sm-12">
 
         <!--Title and Logo-->
-        
-            <header>
+        <header>
     <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-folder-open" aria-hidden="true"></i></a>
-        
-            <h1 id="main-title" class="title">categories</h1>
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
     </div>
 </header>
-            <section class="main archive-container">
-                
-                        <div class="archive-post">
-    <a href="/categories/2021HVV/">
-        2021HVV
-    </a>
-</div>
-                
-                        <div class="archive-post">
-    <a href="/categories/%E5%B0%8F%E6%8A%80%E6%9C%AF%E5%AD%98%E6%A1%A3/">
-        小技术存档
-    </a>
-</div>
-                
-                        <div class="archive-post">
-    <a href="/categories/linux/">
-        linux
-    </a>
-</div>
-                
-            </section>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA/">
+                无法连接打印机
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2021-11-10</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/小技术存档/">小技术存档</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
         
+
+        <!-- Post Content -->
+        <h4 id="最近因为windows10更新打了某些补丁，导致许多打印机无法连接共享打印机，话不多说，直接上教程！"><a href="#最近因为windows10更新打了某些补丁，导致许多打印机无法连接共享打印机，话不多说，直接上教程！" class="headerlink" title="最近因为windows10更新打了某些补丁，导致许多打印机无法连接共享打印机，话不多说，直接上教程！"></a>最近因为windows10更新打了某些补丁，导致许多打印机无法连接共享打印机，话不多说，直接上教程！</h4><h3 id="0x0000011b"><a href="#0x0000011b" class="headerlink" title="0x0000011b"></a>0x0000011b</h3><p>​        连接共享打印机时提示Windows 无法连接到打印机， 错误代码为0x0000011b。</p>
+<p><img src="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA//1.png" alt="装B专用"></p>
+<p><strong>问题排查：</strong><br>根据排查，确认为9月13号微软发布的 <strong>KB5005565</strong>补丁导致的此问题。</p>
+<p><img src="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA//2.png" alt="装B专用"></p>
+<p><strong>方法一：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、打开控制面板----查看方式(类别)----卸载程序----查看一看装的更新----找到(用于Microsoft Windows的安全更新KB5005565)----右键卸载----等待卸载</span><br><span class="line">2、WIN+R打开运行窗口----输入services.msc----找到windows update----关闭自动更新</span><br><span class="line">3、等卸载完成，关闭了自动更新，重新启动以后，再次连接共享打印机即可</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA//5.png" alt="装B专用"></p>
+<p><strong>方法二：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、WIN+R打开运行窗口----输入regedit调出来注册表----找到这个路径(HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print)----在空白处右键新建值----DWORO(32位)值(D)----重命名为(RpcAuthnLevelPrivacyEnabled)----右键修改键入数值0----点击确定</span><br><span class="line">2、WIN+R打开运行窗口----输入services.msc----找到windows update----关闭自动更新</span><br><span class="line">3、等卸载完成，关闭了自动更新，重新启动以后，再次连接共享打印机即可</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA//3.png" alt="装B专用"></p>
+<h3 id="0x00000709"><a href="#0x00000709" class="headerlink" title="0x00000709"></a>0x00000709</h3><p>​        连接共享打印机时提示Windows 无法连接到打印机， 错误代码为0x00000709。</p>
+<p><img src="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA//4.png" alt="装B专用"></p>
+<p><img src="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA//1.jpg" alt="装B专用"></p>
+<p><strong>解决方法：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、打开控制面板----查看方式(类别)----卸载程序----查看一看装的更新----找到(用于Microsoft Windows的安全更新KB500xxxx)----右键卸载</span><br><span class="line">2、WIN+R打开运行窗口----输入services.msc----找到windows update----关闭自动更新</span><br><span class="line">3、等卸载完成，关闭了自动更新，重新启动以后，再次连接共享打印机即可</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/11/10/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%89%93%E5%8D%B0%E6%9C%BA//5.png" alt="装B专用"></p>
+<h3 id="连接共享打印机"><a href="#连接共享打印机" class="headerlink" title="连接共享打印机"></a>连接共享打印机</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、首先找一台电脑用线连接起来，安装对应驱动，使其正常打印，安装过程中直接共享其打印机。</span><br><span class="line">2、WIN+R打开运行窗口----输入services.msc----找到server----将服务开启</span><br><span class="line">3、WIN+R打开运行窗口----输入gpedit.msc----调出本地策略编辑器</span><br><span class="line">4、找到一下路径，计算机配置----windows设置----安全设置----本地策略----用户权限分配</span><br><span class="line">5、找到(拒绝从网络访问这台计算机、拒绝本地登录)，将guest删除。找到(从网络访问此计算机)，将guest加进去，保存</span><br><span class="line">6、找到一下路径，计算机配置----windows设置----安全设置----本地策略----安全选项</span><br><span class="line">7、找到(帐户: 使用空密码的本地帐户只允许进行控制台登录)并且禁用</span><br><span class="line">8、WIN+R打开运行窗口----输入共享打印机连接的主机IP地址----找到该打印机，点击连接，打印测试页，成功即完成共享打印机</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/简单知识/">#简单知识</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
     </div>
 </div>
 
