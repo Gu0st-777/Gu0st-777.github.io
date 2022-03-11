@@ -180,29 +180,29 @@
 
 <h6 id="安装docker过程"><a href="#安装docker过程" class="headerlink" title="$安装docker过程"></a>$安装docker过程</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">更新系统内核yum -y update</span><br><span class="line"></span><br><span class="line">#显示以下界面就算成功</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/03/11/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8(%E4%BA%8C)//1.png" alt="装B专用"></p>
+<p><img src="/2022/03/11/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8%EF%BC%88%E4%BA%8C%EF%BC%89//1.png" alt="装B专用"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">安装docker</span><br><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line">设置一个yum源</span><br><span class="line">yum-config-manager --add-repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;docker-ce&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo（阿里仓库）  #这里选用阿里仓库</span><br><span class="line"></span><br><span class="line">#显示以下界面即为成功</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/03/11/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8(%E4%BA%8C)//2.png" alt="装B专用"></p>
+<p><img src="/2022/03/11/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8%EF%BC%88%E4%BA%8C%EF%BC%89//2.png" alt="装B专用"></p>
 <p>选择18.03.1版本安装，也可以用这个命令查看其他版本<strong>yum list docker-ce –showduplicates | sort -r</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install docker-ce-18.03.1.ce   #安装docker</span><br><span class="line"></span><br><span class="line">#显示以下界面即为成功</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/03/11/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8(%E4%BA%8C)//3.png" alt="装B专用"></p>
+<p><img src="/2022/03/11/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8%EF%BC%88%E4%BA%8C%EF%BC%89//3.png" alt="装B专用"></p>
 <p>启动docker并且设置开机自启</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br><span class="line">systemctl enable docker</span><br></pre></td></tr></table></figure>
 
 <h6 id="安装awvs过程"><a href="#安装awvs过程" class="headerlink" title="安装awvs过程"></a>安装awvs过程</h6><p><em><strong>在安装docker完成的基础上开始下一步操作</strong></em></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pull拉取docker-awvs下载镜像:docker pull secfa&#x2F;docker-awvs</span><br><span class="line">#提示，这个过程会特别漫长，也会因为网络不好造成失败，失败了就继续执行下载镜像命令</span><br><span class="line"></span><br><span class="line">#显示以下界面即为成功</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/03/11/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8(%E4%BA%8C)//4.png" alt="装B专用"></p>
+<p><img src="/2022/03/11/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8%EF%BC%88%E4%BA%8C%EF%BC%89//4.png" alt="装B专用"></p>
 <p><em><strong>将docker的3443端口映射到物理机端口，我用的33333(1-65535)端口</strong></em></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -d -p 33333:3443 secfa&#x2F;docker-awvs</span><br><span class="line"></span><br><span class="line">#显示以下界面即为成功</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/03/11/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8(%E4%BA%8C)//5.png" alt="装B专用"></p>
+<p><img src="/2022/03/11/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8%EF%BC%88%E4%BA%8C%EF%BC%89//5.png" alt="装B专用"></p>
 <p><em><strong>安装完成</strong></em></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">登录网址：https:&#x2F;&#x2F;IP:33333</span><br><span class="line">username: admin@admin.com</span><br><span class="line">password: Admin123</span><br><span class="line"></span><br><span class="line">#显示以下界面即为成功</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/03/11/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8(%E4%BA%8C)//6.png" alt="装B专用"></p>
+<p><img src="/2022/03/11/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8%EF%BC%88%E4%BA%8C%EF%BC%89//6.png" alt="装B专用"></p>
 <h4 id="问题修正"><a href="#问题修正" class="headerlink" title="问题修正"></a>问题修正</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">再次开启造成无法访问情况根据一下操作进行</span><br><span class="line">mkdir &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.service.d</span><br><span class="line">vim &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.service.d&#x2F;http-proxy.conf</span><br><span class="line">---</span><br><span class="line"> [Service] </span><br><span class="line">    Environment&#x3D;&quot;HTTP_PROXY&#x3D;http:&#x2F;&#x2F;127.0.0.1:33333&#x2F;&quot;</span><br><span class="line">    Environment&#x3D;&quot;HTTPS_PROXY&#x3D;https:&#x2F;&#x2F;127.0.0.1:33333&#x2F;&quot;</span><br><span class="line">---</span><br><span class="line">重启docker</span><br><span class="line"> sudo systemctl daemon-reload</span><br><span class="line"> sudo systemctl restart docker</span><br><span class="line"> </span><br><span class="line"> docker run -it -d -p 33333:3443 secfa&#x2F;docker-awvs</span><br></pre></td></tr></table></figure>
 
 
