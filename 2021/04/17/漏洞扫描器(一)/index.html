@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="漏洞扫描器"/>
+        <meta property="og:title" content="漏洞扫描器(一)"/>
     
 
     <!--Open Graph Description-->
@@ -47,7 +47,7 @@
 
     <!-- Title -->
     
-    <title>漏洞扫描器 - 露天烧烤</title>
+    <title>漏洞扫描器(一) - 露天烧烤</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -153,8 +153,8 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/2021/04/17/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8/">
-                漏洞扫描器
+            <a href="/2021/04/17/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8(%E4%B8%80)/">
+                漏洞扫描器(一)
             </a>
         </h1>
         <div class="post-info">
@@ -185,15 +185,15 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">链接：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1tEZcukEfQvidY1f7lOuR9g </span><br><span class="line">提取码：ltsk </span><br></pre></td></tr></table></figure>
 
 <h6 id="过程"><a href="#过程" class="headerlink" title="$ 过程"></a>$ 过程</h6><p>1）打开运行(win+r)，将这个丢进去<code>shell:::&#123;67718415-c450-4f3c-bf8a-b487642dc39b&#125;</code>点击确定</p>
-<p><img src="/2021/04/17/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8//1.png" alt="装B专用"></p>
+<p><img src="/2021/04/17/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8(%E4%B8%80)//1.png" alt="装B专用"></p>
 <p>2）开启Hyper-V和适用于linux的windows子系统两个功能，检查自己是否开启虚拟功能。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">快捷键：ctrl+shift+esc   打开任务管理器，点击性能</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/04/17/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8//2.png" alt="装B专用"></p>
+<p><img src="/2021/04/17/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8(%E4%B8%80)//2.png" alt="装B专用"></p>
 <p>注意：打开这个功能可能会和自己安装的VM虚拟机冲突，本靓仔的电脑并没有出现这个问题(我的VM版本为15.5.6 )，但是在给我的好朋友enomothem装的时候出现了此问题，已经解决，可以尝试以下命令，<a target="_blank" rel="noopener" href="https://enomothem.cn/posts/1b85.html">enomothem的解决方法</a>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$以管理员身份打开cmd，输入bcdedit &#x2F;set hypervisorlaunchtype off</span><br><span class="line">关闭HV主机服务，即可解决。</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/04/17/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8//4.png" alt="装B专用"></p>
+<p><img src="/2021/04/17/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8(%E4%B8%80)//4.png" alt="装B专用"></p>
 <p>但是本靓仔建议不要在自己物理机尝试，在vm中整它是最好的。</p>
 <p>3）我直接扔命令了，接好了</p>
 <p><strong>V2版本：</strong></p>
@@ -204,11 +204,11 @@
 
 <p>4）然后就可以打开浏览器冲了，使用教程自己瞎点点就会了，会的自会不用教。</p>
 <h6 id="补充"><a href="#补充" class="headerlink" title="$ 补充"></a>$ 补充</h6><p>本靓仔属于特别懒惰的那种人，觉得一个一个创建扫描任务太累了，所以附上批量脚本，批量上传。</p>
-<p><img src="/2021/04/17/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8//3.png" alt="装B专用"></p>
+<p><img src="/2021/04/17/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8(%E4%B8%80)//3.png" alt="装B专用"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">#懒人专用，转载自觉，勿做伸手党。</span><br><span class="line">import requests</span><br><span class="line">import json</span><br><span class="line">import  requests.packages</span><br><span class="line">import  urllib3.packages</span><br><span class="line">from urllib3.exceptions import InsecureRequestWarning</span><br><span class="line"># from requests.packages.urllib3.exceptions import InsecureRequestWarning</span><br><span class="line"># requests.packages.urllib3.disable_warnings(InsecureRequestWarning)</span><br><span class="line">urllib3.disable_warnings(InsecureRequestWarning)</span><br><span class="line"></span><br><span class="line">apikey &#x3D; &#39;1986ad8c0a5b3df4d7028d5f3c06e936c69976de6296f46c9b2335a51d9321f70&#39;</span><br><span class="line"># 去 AWVS 配置文件里面  有个 API KEY  复制填进去就行</span><br><span class="line">apikey &#x3D; str(apikey)</span><br><span class="line">headers &#x3D; &#123;&#39;Content-Type&#39;: &#39;application&#x2F;json&#39;,&quot;X-Auth&quot;: apikey&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def addTask(url,target):</span><br><span class="line">    try:</span><br><span class="line">        url &#x3D; &#39;&#39;.join((url, &#39;&#x2F;api&#x2F;v1&#x2F;targets&#x2F;add&#39;))</span><br><span class="line">        data &#x3D; &#123;&quot;targets&quot;:[&#123;&quot;address&quot;: target,&quot;description&quot;:&quot;&quot;&#125;],&quot;groups&quot;:[]&#125;</span><br><span class="line">        r &#x3D; requests.post(url, headers&#x3D;headers, data&#x3D;json.dumps(data), timeout&#x3D;30, verify&#x3D;False)</span><br><span class="line">        result &#x3D; json.loads(r.content.decode())</span><br><span class="line">        return result[&#39;targets&#39;][0][&#39;target_id&#39;]</span><br><span class="line">    except Exception as e:</span><br><span class="line">        return e</span><br><span class="line">def scan(url,target,Crawl,user_agent,profile_id,proxy_address,proxy_port):</span><br><span class="line">    scanUrl &#x3D; &#39;&#39;.join((url, &#39;&#x2F;api&#x2F;v1&#x2F;scans&#39;))</span><br><span class="line">    target_id &#x3D; addTask(url,target)</span><br><span class="line"></span><br><span class="line">    if target_id:</span><br><span class="line">        data &#x3D; &#123;&quot;target_id&quot;: target_id, &quot;profile_id&quot;: profile_id, &quot;incremental&quot;: False, &quot;schedule&quot;: &#123;&quot;disable&quot;: False, &quot;start_date&quot;: None, &quot;time_sensitive&quot;: False&#125;&#125;</span><br><span class="line">        try:</span><br><span class="line">            configuration(url,target_id,proxy_address,proxy_port,Crawl,user_agent)</span><br><span class="line">            response &#x3D; requests.post(scanUrl, data&#x3D;json.dumps(data), headers&#x3D;headers, timeout&#x3D;30, verify&#x3D;False)</span><br><span class="line">            result &#x3D; json.loads(response.content)</span><br><span class="line">            return result[&#39;target_id&#39;]</span><br><span class="line">        except Exception as e:</span><br><span class="line">            print(e)</span><br><span class="line"></span><br><span class="line">def configuration(url,target_id,proxy_address,proxy_port,Crawl,user_agent):</span><br><span class="line">    configuration_url &#x3D; &#39;&#39;.join((url,&#39;&#x2F;api&#x2F;v1&#x2F;targets&#x2F;&#123;0&#125;&#x2F;configuration&#39;.format(target_id)))</span><br><span class="line">    data &#x3D; &#123;&quot;scan_speed&quot;:&quot;fast&quot;,&quot;login&quot;:&#123;&quot;kind&quot;:&quot;none&quot;&#125;,&quot;ssh_credentials&quot;:&#123;&quot;kind&quot;:&quot;none&quot;&#125;,&quot;sensor&quot;: False,&quot;user_agent&quot;: user_agent,&quot;case_sensitive&quot;:&quot;auto&quot;,&quot;limit_crawler_scope&quot;: True,&quot;excluded_paths&quot;:[],&quot;authentication&quot;:&#123;&quot;enabled&quot;: False&#125;,&quot;proxy&quot;:&#123;&quot;enabled&quot;: Crawl,&quot;protocol&quot;:&quot;http&quot;,&quot;address&quot;:proxy_address,&quot;port&quot;:proxy_port&#125;,&quot;technologies&quot;:[],&quot;custom_headers&quot;:[],&quot;custom_cookies&quot;:[],&quot;debug&quot;:False,&quot;client_certificate_password&quot;:&quot;&quot;,&quot;issue_tracker_id&quot;:&quot;&quot;,&quot;excluded_hours_id&quot;:&quot;&quot;&#125;</span><br><span class="line">    r &#x3D; requests.patch(url&#x3D;configuration_url,data&#x3D;json.dumps(data), headers&#x3D;headers, timeout&#x3D;30, verify&#x3D;False)</span><br><span class="line">def main():</span><br><span class="line">    Crawl &#x3D; False</span><br><span class="line">    proxy_address &#x3D; &#39;127.0.0.1&#39;</span><br><span class="line">    proxy_port &#x3D; &#39;8888&#39;</span><br><span class="line">    awvs_url &#x3D; &#39;https:&#x2F;&#x2F;127.0.0.1:13443&#39; #awvs url</span><br><span class="line">    with open(&#39;url.txt&#39;,&#39;r&#39;,encoding&#x3D;&#39;utf-8&#39;) as f:</span><br><span class="line">        targets &#x3D; f.readlines()</span><br><span class="line">    profile_id &#x3D; &quot;11111111-1111-1111-1111-111111111111&quot;</span><br><span class="line">    user_agent &#x3D; &quot;Mozilla&#x2F;5.0 (Windows NT 6.1; WOW64) AppleWebKit&#x2F;537.21 (KHTML, like Gecko) Chrome&#x2F;41.0.2228.0 Safari&#x2F;537.21&quot; #扫描默认UA头</span><br><span class="line">    if Crawl:</span><br><span class="line">        profile_id &#x3D; &quot;11111111-1111-1111-1111-111111111117&quot;</span><br><span class="line">    for target in targets:</span><br><span class="line">        target &#x3D; target.strip()</span><br><span class="line">        if scan(awvs_url,target,Crawl,user_agent,profile_id,proxy_address,int(proxy_port)):</span><br><span class="line">            print(&quot;&#123;0&#125; 添加成功&quot;.format(target))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
 <h6 id="结束语"><a href="#结束语" class="headerlink" title="$ 结束语"></a>$ 结束语</h6><p>做事须谨慎，小心银手镯哦！</p>
-<p><img src="/2021/04/17/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8//4.jpg" alt="装B专用"></p>
+<p><img src="/2021/04/17/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8(%E4%B8%80)//4.jpg" alt="装B专用"></p>
 
     </div>
 
@@ -264,7 +264,7 @@
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/04/17/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8/">漏洞扫描器</a>
+                <a class="footer-post" href="/2021/04/17/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8(%E4%B8%80)/">漏洞扫描器(一)</a>
             </li>
             
         </ul>
